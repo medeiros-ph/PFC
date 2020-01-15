@@ -2,8 +2,9 @@
 
 import cv2
 import numpy as np
-from sklearn.cluster import kMeans
+
 from sklearn.neighbors import NearestNeighbors
+from sklearn.cluster import KMeans 
 
 #Load image to system
 image = cv2.imread('images/Solar/solar.jpeg')
