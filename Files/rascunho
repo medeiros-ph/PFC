@@ -1,0 +1,13 @@
+Título: Inspeção de Painéis Fotovoltaicos Utilizando VANTs semi-autônomos 
+
+Objetivo:
+O objetivo do projeto é fazer com que um VANT reconheça padrões em plantas de painéis fotovoltáicos atravéz de imagens adquiridas pelo mesmo. Essas imagens serão comparadas com imagens pré-estabelecidas. O núcleo da pesquisa abordará as principais operações sobre imagens e simulações, tais como: filtragem espacial, segmentação, transformações em escala, resolução, extração de características, dentre outras. E servirá como tomada de descisão para o VANT autônomo.
+
+
+Na parte de aplicações, serão apresentados exemplos de aplicações envolvendo segmentação de imagens, reconhecendo objetos e marcos retroalimentando o sistema de reconhecimento. O Processamento Digital de Imagens (PDI) será utilizado em imagens geradas por câmera de modo que possa servir como aplicação na área da robótica para robôs autônomos e/ou semi-atônomos, por exemplo.
+
+Metodologia:
+O projeto do sistema proposto será realizado em etapas. Inicialmente será realizada a definição do hardware a ser utilizado que compreende na escolha da câmera, do sistema de aquisição, pesquisa bibliográfica e processamento de imagens.  Na sequência será realizada a definição dos métodos de pré-processamento , segmentação e reconhecimento de padrões a ser utilizado. Esta etapa possibilitará a aquisição do hardware e  desenvolvimento dos sistemas de processamento de imagens e reconhecimento de padrões.  Por fim serão realizados testes e verificações de eficiência do sistema de reconhecimento de padrões em imagens.
+
+Resultados Esperados:
+Os resultados obtidos no desenvolvimento deste projeto serão publicados na semana de iniciação científica do CEFET/RJ e no Congresso Brasileiro de Automática. É esperado que o sistema realize o reconhecimento de um padrão pré-estabelecido em tempo real durante o voo de um VANT e em imagens em movimento adquiridas por uma câmera.
