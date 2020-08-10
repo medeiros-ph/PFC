@@ -2,6 +2,8 @@
 # Código original: https://github.com/neerajdixit/object-detection-with-svm-and-opencv
 # Dataset: https://github.com/udacity/CarND-Vehicle-Detection
 
+# Dataset Adaptacao placas solares: https://deep-solar-eye.github.io/
+
 from requests import exceptions
 import requests
 import os
