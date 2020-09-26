@@ -1,0 +1,129 @@
+http://wiki.ros.org/hector_quadrotor_teleop
+
+git clone https://github.com/clearpathrobotics/cpr_gazebo
+
+sudo apt update --fix-missing \
+&& sudo apt install -y ros-kinetic-ros-control \
+       ros-kinetic-gazebo-ros-control \
+       ros-kinetic-unique-identifier \
+       ros-kinetic-geographic-info \
+       ros-kinetic-laser-geometry \
+       ros-kinetic-tf-conversions \
+       ros-kinetic-tf2-geometry-msgs \
+       ros-kinetic-joy
+
+
+mkdir -p /home/medeiros/catkin_ws/src
+cd /home/medeiros/catkin_ws
+catkin_make
+
+cd /home/medeiros/catkin_ws/src
+git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor
+git clone -b catkin https://github.com/tu-darmstadt-ros-pkg/hector_localization
+git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_gazebo
+git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_models
+git clone -b catkin https://github.com/tu-darmstadt-ros-pkg/hector_slam
+
+cd /home/medeiros/catkin_ws/
+catkin_make
+
+source /opt/ros/kinetic/setup.bash
+source devel/setup.bash
+
+roslaunch hector_quadrotor_gazebo quadrotor_empty_world.launch
+
+No cpr_gazebo/cpr_inspection-gazebo/launch/inspection_world.lauch
+
+<launch>
+    <param name="inspection_geom" command="$(find xacro)/xacro --inorder '$(find cpr_inspection_gazebo)/urdf/inspection_geometry.urdf.xacro'" />
+    <param name="inspection_water_geom" command="$(find xacro)/xacro --inorder '$(find cpr_inspection_gazebo)/urdf/inspection_water.urdf.xacro'" />
+
+    <!-- <arg name="platform" default="$(optenv CPR_GAZEBO_PLATFORM husky)" />
+    <arg name="x" default="0.0"/>
+    <arg name="y" default="10.0"/>
+    <arg name="z" default="0.8"/> -->
+
+    <arg name="use_sim_time" default="true" />
+    <arg name="gui" default="true" />
+    <arg name="headless" default="false" />
+    <arg name="world_name" default="$(find cpr_inspection_gazebo)/worlds/actually_empty_world.world" />
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="debug" value="0" />
+      <arg name="gui" value="$(arg gui)" />
+      <arg name="use_sim_time" value="$(arg use_sim_time)" />
+      <arg name="headless" value="$(arg headless)" />
+      <arg name="world_name" value="$(arg world_name)" />
+    </include>
+
+    <node name="inspection_world_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -model inspection_geom -param inspection_geom -x 0 -y 0 -z 0 -Y 0" />
+    <node name="inspection_water_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -model inspection_water_geom -param inspection_water_geom -x 0 -y 0 -z 0 -Y 0" />
+
+    <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor_with_cam.launch" />
+
+    <!-- <include file="$(find cpr_inspection_gazebo)/launch/spawn_$(arg platform).launch">
+      <arg name="x" value="$(arg x)"/>
+      <arg name="y" value="$(arg y)"/>
+      <arg name="z" value="$(arg z)"/>
+    </include> -->
+</launch>
+
+No hectorquadrotor/hector_quadrotor_gazebo/launch/spaw_quadrotor_with_cam.launch
+
+<?xml version="1.0"?>
+
+<launch>
+   <arg name="name" default="quadrotor"/>
+   <arg name="tf_prefix" default="$(optenv ROS_NAMESPACE)"/>
+   <arg name="x" default="0.0"/>
+   <arg name="y" default="10.0"/>
+   <arg name="z" default="0.8"/>
+
+   <arg name="use_ground_truth_for_tf" default="true"/>
+   <arg name="use_ground_truth_for_control" default="true"/>
+   <arg name="use_pose_estimation" if="$(arg use_ground_truth_for_control)" default="false"/>
+   <arg name="use_pose_estimation" unless="$(arg use_ground_truth_for_control)" default="true"/>
+
+   <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+     <arg name="name" default="$(arg name)"/>
+     <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor_with_cam.gazebo.xacro"/>
+     <arg name="tf_prefix" default="$(arg tf_prefix)"/>
+     <arg name="x" default="$(arg x)"/>
+     <arg name="y" default="$(arg y)"/>
+     <arg name="z" default="$(arg z)"/>   
+     <arg name="use_ground_truth_for_tf" value="$(arg use_ground_truth_for_tf)"/>
+     <arg name="use_ground_truth_for_control" value="$(arg use_ground_truth_for_control)"/>
+     <arg name="use_pose_estimation" value="$(arg use_pose_estimation)"/>
+   </include>
+
+</launch>
+
+
+no hector_quadrotor/hector_quadrotor_description/urdf/quadrotor_with_cam_urdf.xacro
+
+<?xml version="1.0"?>
+
+<robot name="quadrotor" xmlns:xacro="http://www.ros.org/wiki/xacro">
+   
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+    
+    <!-- Included URDF Files -->
+    <xacro:include filename="$(find hector_quadrotor_description)/urdf/quadrotor_base.urdf.xacro" />
+    
+    <!-- Instantiate quadrotor_base_macro once (has no parameters atm) -->
+    <xacro:quadrotor_base_macro />
+    
+    <!-- Forward facing camera -->
+    <xacro:include filename="$(find hector_sensors_description)/urdf/generic_camera.urdf.xacro" />
+    <xacro:generic_camera name="front_cam" parent="base_link" ros_topic="camera/image" cam_info_topic="camera/camera_info" update_rate="15" res_x="1600" res_y="1200" image_format="R8G8B8" hfov="90">
+      <origin xyz="0.05 0.0 -0.06" rpy="0 0 0"/>
+    </xacro:generic_camera>
+    
+</robot>
+
+Depois
+
+cd /home/medieros/catkin_ws
+cattkin_make
+source devel/setup.bash 
+roslaunch cpr_inspection_gazebo inspection_world.launch 
+
