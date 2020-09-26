@@ -377,11 +377,11 @@ def setup_train_data(colorConv, orient, pix_per_cell, cell_per_block, hog_channe
     # images = glob.glob('/home/medeiros/object-detection-with-svm-and-opencv/non-vehicles/non-vehicles/**/*.png', recursive=True)
     # sampling = random.choices(list, k=4)
 
-    quantidade_imagens = 5 # Max_placa = 40k 
-    quantidade_NotROI = 5 # Max 8968
+    quantidade_imagens = 30000 # Max_placa = 40764 
+    quantidade_NotROI = 8968 # Max = 8968
 
     cars = []
-    images = glob.glob('/home/medeiros/PFC/images_png64/*.png', recursive=True)
+    images = glob.glob('/home/medeiros/PFC/images_png64/**/*.png', recursive=True)
     filtrado = random.choices(images, k=quantidade_imagens)
     for image in filtrado:
         imagem_problema = cv2.imread(image, 0)
@@ -390,9 +390,11 @@ def setup_train_data(colorConv, orient, pix_per_cell, cell_per_block, hog_channe
         cars.append(image)
     
     print('Finnished Car images')
+    
+    notcars = []
     images_not = glob.glob('/home/medeiros/object-detection-with-svm-and-opencv/non-vehicles/non-vehicles/**/*.png', recursive=True)
     filtradoN = random.choices(images_not, k=quantidade_NotROI)
-    notcars = []
+    
     for image in filtradoN:
         notcars.append(image)
 
@@ -452,7 +454,8 @@ test_classifier(svc, X_test, y_test)
 # test_dir = "/home/medeiros/object-detection-with-svm-and-opencv/test_images/"
 # /home/medeiros/PFC/images
 
-test_dir = "/home/medeiros/PFC/images/"
+test_dir = "/home/medeiros/PFC/images"
+###"/home/medeiros/PFC/IMG-TESTE/"
 test_images = glob.glob(test_dir+'solar*.jpeg')
 for test_image in test_images:
     print()
