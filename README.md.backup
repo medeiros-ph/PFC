@@ -4,8 +4,11 @@
 ###### Título: 
 Inspeção de Painéis Fotovoltaicos Utilizando VANTs semi-autônomos
 
-###### Orientadora:
+**Artigo (Em construção):** https://www.overleaf.com/project/5f6e613bc322a10001637b1a
+
+###### Orientadores:
 Profa. Milena Faria Pinto, Dsc.
+Felipe Ximenes Viana, Msc.
 
 ###### Discente:
 Raphael Santos Medeiros - Eng. Eletrônica - CEFET/RJ Maracanã
@@ -19,3 +22,16 @@ Na parte de aplicações, serão apresentados exemplos de tarefas envolvendo seg
 	* Estudo e implementação de uma metodologia para inspeção de painéis fotovoltaicos através de robôs aéreos;
 	* Estudo e implementação de uma metodologia para detecção de características importantes em imagens de painéis fotovoltaicos;
 	* Publicação de um artigo em uma conferência de âmbito nacional para o fortalecimento do vínculo do aluno com pesquisadores da área e empresas relacionadas ao tema.
+
+
+###### Banco de dados:​
+
+**Ambiente Gazebo:** https://clearpathrobotics.com/blog/2020/07/clearpath-robots-get-new-gazebo-simulation-environments/​
+**
+Código original (Visão):** https://github.com/neerajdixit/object-detection-with-svm-and-opencv​
+
+**Dataset (utizado para não placas):** https://github.com/udacity/CarND-Vehicle-Detection​
+
+**Dataset (utizado para placas):** https://deep-solar-eye.github.io/
+
+**Ambiente (env) e Bibliotecas:** verifique o arquivo requirements.txt
