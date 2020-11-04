@@ -38,4 +38,4 @@ Na parte de aplicações, serão apresentados exemplos de tarefas envolvendo seg
 
 ### Fluxograma do código de funcionamento da Visão Computacional:
 
-![](Object Detection-Fluxograma.png)
+![alt text](https://github.com/medeiros-ph/PFC/blob/master/Object%20Detection-Fluxograma.png?raw=true)
