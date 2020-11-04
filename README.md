@@ -27,8 +27,8 @@ Na parte de aplicações, serão apresentados exemplos de tarefas envolvendo seg
 ###### Banco de dados:​
 
 **Ambiente Gazebo:** https://clearpathrobotics.com/blog/2020/07/clearpath-robots-get-new-gazebo-simulation-environments/​
-**
-Código original (Visão):** https://github.com/neerajdixit/object-detection-with-svm-and-opencv​
+
+**Código original (Visão):** https://github.com/neerajdixit/object-detection-with-svm-and-opencv​
 
 **Dataset (utizado para não placas):** https://github.com/udacity/CarND-Vehicle-Detection​
 
