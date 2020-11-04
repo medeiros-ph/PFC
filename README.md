@@ -7,8 +7,7 @@ Inspeção de Painéis Fotovoltaicos Utilizando VANTs semi-autônomos
 **Artigo (Em construção):** https://www.overleaf.com/project/5f6e613bc322a10001637b1a
 
 ###### Orientadores:
-Profa. Milena Faria Pinto, Dsc.
-Felipe Ximenes Viana, Msc.
+Profa. Milena Faria Pinto, Dsc. & Felipe Ximenes Viana, Msc.
 
 ###### Discente:
 Raphael Santos Medeiros - Eng. Eletrônica - CEFET/RJ Maracanã
