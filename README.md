@@ -35,3 +35,7 @@ Na parte de aplicações, serão apresentados exemplos de tarefas envolvendo seg
 **Dataset (utizado para placas):** https://deep-solar-eye.github.io/
 
 **Ambiente (env) e Bibliotecas:** verifique o arquivo requirements.txt
+
+### Fluxograma do código de funcionamento da Visão Computacional:
+
+![](Object Detection-Fluxograma.png)
