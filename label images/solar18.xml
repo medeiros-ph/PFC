@@ -1,0 +1,26 @@
+<annotation>
+	<folder>label images</folder>
+	<filename>solar18.png</filename>
+	<path>/home/medeiros/PFC/label images/solar18.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>64</width>
+		<height>64</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Solar Panel</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>9</xmin>
+			<ymin>7</ymin>
+			<xmax>62</xmax>
+			<ymax>54</ymax>
+		</bndbox>
+	</object>
+</annotation>
